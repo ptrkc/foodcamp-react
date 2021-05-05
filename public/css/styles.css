@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+}
+#logo {
+    font-family: 'Righteous', cursive;
+    font-size: 44px;
+}
