@@ -2,10 +2,24 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #EEEEEE;
-    font-family: 'Roboto', sans-serif;
+    background-color: #eeeeee;
+    font-family: "Roboto", sans-serif;
 }
-#logo {
-    font-family: 'Righteous', cursive;
+#top-bar {
+    position: fixed;
+    height: 92px;
+    left: 0px;
+    right: 0;
+    top: 0px;
+    background-color: #cf2b2b;
+    font-family: "Righteous", cursive;
     font-size: 44px;
+    color: #ffffff;
+}
+h1 {
+    font-family: "Righteous", cursive;
+    font-size: 44px;
+}
+#top-bar p {
+    font-size: 18px;
 }

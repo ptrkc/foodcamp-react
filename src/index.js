@@ -1,10 +1,10 @@
-import React from "react";
 import ReactDOM from "react-dom";
+import TopBar from "./TopBar.js";
 
 function App() {
     return (
         <>
-            {/* <TopBar/> */}
+            <TopBar />
             {/* <Content/> */}
             {/* <BottomBar/> */}
         </>
