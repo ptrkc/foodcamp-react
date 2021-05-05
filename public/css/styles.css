@@ -23,3 +23,11 @@ h1 {
 #top-bar p {
     font-size: 18px;
 }
+#content {
+    margin-top: 123px;
+}
+.category p {
+    font-family: "Righteous", cursive;
+    font-size: 26px;
+    color: #333333;
+}
