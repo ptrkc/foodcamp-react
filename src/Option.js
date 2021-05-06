@@ -1,11 +1,14 @@
-export default function Option() {
+export default function Option(props) {
+    const { alt, img, name, description, price } = props.option;
     return (
         <li class="option">
-            <img src="/img/falafel.jpg" />
-            <strong>Falafel Burger</strong>
-            <span class="description">Hamburger de Falafel, uma delícia.</span>
-            <div>
-                <span>R$ 19,90</span>
+            <div class="img-box">
+                <img src={img} alt={alt} />
+            </div>
+            <strong>{name}</strong>
+            <span class="description">{description}</span>
+            <div class="price-quantity">
+                <span>{price}</span>
                 <div class="counter">
                     <span class="remove"> - </span>
                     <span> 1 </span>
