@@ -6,6 +6,8 @@ body {
     font-family: "Roboto", sans-serif;
 }
 #top-bar {
+    padding-top: 10px;
+    padding-left: 21px;
     position: fixed;
     height: 92px;
     left: 0;
@@ -21,14 +23,77 @@ h1 {
 }
 #top-bar p {
     font-size: 18px;
+    margin-top: 2px;
 }
 #content {
     margin-top: 123px;
+    margin-bottom: 92px;
 }
-.category p {
+.category {
+    width: 100%;
+}
+.category h2 {
     font-family: "Righteous", cursive;
     font-size: 26px;
     color: #333333;
+    padding-left: 19px;
+}
+.category ul {
+    padding: 17px 0px 27px 0px;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.category ul > :first-child {
+    margin-left: 19px;
+}
+.category ul .spacer {
+    width: 11px;
+    flex-shrink: 0;
+}
+.option {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 14px 13px 14px;
+    width: 172px;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    font-size: 16px;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.option img {
+    width: 144px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.option strong {
+    color: #333333;
+}
+.option .description {
+    font-size: 15px;
+    color: #a6a6a6;
+    font-weight: 300;
+    margin: 9px 0px;
+    line-height: 18px;
+}
+.option img {
+    width: 144px;
+    border-radius: 4px;
+}
+.option div {
+    display: flex;
+    justify-content: space-between;
+}
+.option div .counter {
+    width: 47px;
+}
+.option div .counter .remove {
+    color: #cf2b2b;
+}
+.option div .counter .add {
+    color: #32b72f;
 }
 #bottom-bar {
     position: fixed;

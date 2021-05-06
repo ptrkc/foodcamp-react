@@ -1,4 +1,4 @@
-import Category from "./Category.js";
+import Category from "./Category";
 
 export default function Content() {
     return (

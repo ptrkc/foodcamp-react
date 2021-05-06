@@ -1,3 +1,5 @@
+import Option from "./Option";
+
 export default function Category(props) {
     let title;
     if (props.type === "food") {
@@ -9,9 +11,15 @@ export default function Category(props) {
     }
     return (
         <div class="category">
-            <p>{title}</p>
+            <h2>{title}</h2>
             <ul class="options">
-                <li></li>
+                <Option />
+                <Option />
+                <Option />
+                <Option />
+                <Option />
+                <Option />
+                <div class="spacer"></div>
             </ul>
         </div>
     );
