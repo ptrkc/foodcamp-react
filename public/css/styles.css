@@ -8,11 +8,10 @@ body {
 #top-bar {
     position: fixed;
     height: 92px;
-    left: 0px;
+    left: 0;
     right: 0;
-    top: 0px;
+    top: 0;
     background-color: #cf2b2b;
-    font-family: "Righteous", cursive;
     font-size: 44px;
     color: #ffffff;
 }
@@ -30,4 +29,25 @@ h1 {
     font-family: "Righteous", cursive;
     font-size: 26px;
     color: #333333;
+}
+#bottom-bar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 92px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+}
+#bottom-bar button {
+    background-color: #cbcbcb;
+    font-size: 20px;
+    font-family: inherit;
+    border-radius: 50px;
+    height: 61px;
+    color: #ffffff;
+    border: none;
+    width: 364px;
 }
