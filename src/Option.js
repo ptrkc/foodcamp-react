@@ -1,8 +1,9 @@
 export default function Option(props) {
     const { alt, img, name, description } = props.option;
     const price = String(props.option.price.toFixed(2)).replace(".", ",");
+    const func = props.function;
     return (
-        <li class="option">
+        <li class="option" onClick={func}>
             <div class="img-box">
                 <img src={img} alt={name} />
             </div>

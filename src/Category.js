@@ -2,6 +2,10 @@ import React from "react";
 import Option from "./Option";
 
 export default function Category(props) {
+    function hello() {
+        alert("Hello!");
+    }
+
     const [options, setOptions] = React.useState([...props.options]);
     let title;
     if (props.type === "food") {
@@ -16,7 +20,7 @@ export default function Category(props) {
             <h2>{title}</h2>
             <ul class="options">
                 {options.map((option) => {
-                    return <Option option={option} />;
+                    return <Option option={option} function={hello} />;
                 })}
                 <div class="spacer"></div>
             </ul>
