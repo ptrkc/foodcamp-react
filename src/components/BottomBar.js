@@ -12,7 +12,7 @@ export default function BottomBar(props) {
     }
     return (
         <div id="bottom-bar">
-            <button class={!!props.enabled ? "enabled" : ""}>
+            <button className={!!props.enabled ? "enabled" : ""}>
                 <ButtonText />
             </button>
         </div>

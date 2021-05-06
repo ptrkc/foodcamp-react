@@ -1,8 +1,10 @@
 import ReactDOM from "react-dom";
-import TopBar from "./TopBar";
-import Content from "./Content";
-import BottomBar from "./BottomBar";
 import React from "react";
+import TopBar from "./components/TopBar";
+import Content from "./components/Content";
+import BottomBar from "./components/BottomBar";
+import "./css/reset.css";
+import "./css/styles.css";
 
 function App() {
     const [buttonState, setButtonState] = React.useState("");
