@@ -3,16 +3,10 @@ import React from "react";
 export default function Option(props) {
     const { id, img, name, description } = props.option;
     const price = String(props.option.price.toFixed(2)).replace(".", ",");
-    const [selectOption, modifyAmount, getSelectionType] = props.functions;
-    const selected = !!props.selected;
+    const [selectOption, modifyAmount] = props.functions;
     const type = props.type;
-    const selectionTypeIDs = getSelectionType(type);
     const [counter, setCounter] = React.useState(0);
-    // selectionTypeIDs.forEach((item) => {
-    //     if (item === id) {
-    //         setCounter(counter + 1);
-    //     }
-    // });
+    const selected = !!counter;
     function addItem() {
         setCounter(counter + 1);
     }
@@ -21,7 +15,7 @@ export default function Option(props) {
     }
     return (
         <li
-            className={"option " + props.selected}
+            className={"option " + (selected ? "selected" : "")}
             onClick={() => {
                 if (selected) {
                     return;

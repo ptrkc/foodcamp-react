@@ -2,36 +2,35 @@ import React from "react";
 import Option from "./Option";
 
 export default function Category(props) {
-    const [options, setOptions] = React.useState([...props.options]);
-    const [selectedFoodIDs, setSelectedFoodIDs] = React.useState([]);
-    const [selectedDrinksIDs, setSelectedDrinksIDs] = React.useState([]);
-    const [selectedDesertsIDs, setSelectedDesertsIDs] = React.useState([]);
+    const options = props.options;
+    const [
+        selectedFoodIDs,
+        selectedDrinksIDs,
+        selectedDesertsIDs,
+    ] = props.arrays;
+    const [isAbleToOrder] = props.functions;
     const type = props.type;
 
     function selectOption(type, id) {
         const selectedTypeIDs = getSelectionType(type);
-        const setSelectedTypeIDs = getSetSelectionType(type);
         console.log([...selectedTypeIDs, id]);
-        setSelectedTypeIDs([...selectedTypeIDs, id]);
+        selectedTypeIDs.push(id);
+        isAbleToOrder();
     }
     function modifyAmount(type, id, action) {
         const selectedTypeIDs = getSelectionType(type);
-        const setSelectedTypeIDs = getSetSelectionType(type);
         if (action === "add") {
-            setSelectedTypeIDs([...selectedTypeIDs, id]);
+            selectedTypeIDs.push(id);
         } else {
             removeItem(type, id);
+            isAbleToOrder();
         }
     }
 
     function removeItem(type, id) {
         const selectedTypeIDs = getSelectionType(type);
-        const setSelectedTypeIDs = getSetSelectionType(type);
         const i = selectedTypeIDs.indexOf(id);
-        const newArray = [...selectedTypeIDs];
-        newArray.splice(i, 1);
-        setSelectedTypeIDs([...newArray]);
-        selectedTypeIDs.indexOf(id);
+        selectedTypeIDs.splice(i, 1);
     }
 
     function getSelectionType(type) {
@@ -41,15 +40,6 @@ export default function Category(props) {
             return selectedDrinksIDs;
         } else {
             return selectedDesertsIDs;
-        }
-    }
-    function getSetSelectionType(type) {
-        if (type === "food") {
-            return setSelectedFoodIDs;
-        } else if (type === "drink") {
-            return setSelectedDrinksIDs;
-        } else {
-            return setSelectedDesertsIDs;
         }
     }
     //const typeRendering = getSelectionType(type);
@@ -67,11 +57,7 @@ export default function Category(props) {
                                     ? "selected"
                                     : ""
                             }
-                            functions={[
-                                selectOption,
-                                modifyAmount,
-                                getSelectionType,
-                            ]}
+                            functions={[selectOption, modifyAmount]}
                             type={type}
                         />
                     );
