@@ -7,7 +7,6 @@ export default function Category(props) {
     const setSelectedIDs = props.setSelectedIDs;
 
     function selectOption(id) {
-        console.log([...selectedIDs, id]);
         setSelectedIDs([...selectedIDs, id]);
     }
     function modifyAmount(id, action) {

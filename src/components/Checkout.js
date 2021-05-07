@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CheckoutSummaryCard from "./CheckoutSummaryCard";
 export default function Checkout(props) {
-    console.log(props);
     const [
         selectedFoodIDs,
         selectedDrinksIDs,

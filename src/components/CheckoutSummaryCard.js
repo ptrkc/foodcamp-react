@@ -40,41 +40,6 @@ export default function CheckoutSummaryCard(props) {
 
     let total = 0;
 
-    // function RenderOrderType(props) {
-    //     let categoryItemQuantity;
-    //     const category = props.category;
-    //     if (category === "food") {
-    //         categoryItemQuantity = foodItemQuantity;
-    //     } else if (category === "drinks") {
-    //         categoryItemQuantity = drinksItemQuantity;
-    //     } else if (category === "deserts") {
-    //         categoryItemQuantity = desertsItemQuantity;
-    //     }
-    //     if (categoryItemQuantity.length === 0) {
-    //         return null;
-    //     }
-    //     categoryItemQuantity.map(([id, quantity]) => {
-    //         const item = menuObject[category].find(
-    //             (option) => option.id === id
-    //         );
-    //         console.log(item.name, quantity);
-    //         total += item.price * quantity;
-    //         return (
-    //             <div>
-    //                 <span>
-    //                     {item.name + (quantity > 1 ? ` (${quantity}x)` : "")}
-    //                 </span>
-    //                 <span>
-    //                     {String((item.price * quantity).toFixed(2)).replace(
-    //                         ".",
-    //                         ","
-    //                     )}
-    //                 </span>
-    //             </div>
-    //         );
-    //     });
-    // }
-
     let wholeOrder = "";
     let totalPrice = "";
 
@@ -91,8 +56,6 @@ Total: R$ ${totalPrice}`;
 
     return (
         <div className="checkout-card">
-            {/* <RenderOrderType category={"food"} /> */}
-
             {foodItemQuantity.map(([id, quantity]) => {
                 const item = menuObject["food"].find(
                     (option) => option.id === id
@@ -149,7 +112,7 @@ Total: R$ ${totalPrice}`;
                 wholeOrder += `- Sobremesa: ${item.name}${
                     quantity > 1 ? ` (${quantity}x)\n` : "\n"
                 }`;
-                totalPrice = `R$ ${String(total.toFixed(2)).replace(".", ",")}`;
+                totalPrice = `R$ ${String(total.toFixed(2))}`;
                 createMessage();
                 return (
                     <div>

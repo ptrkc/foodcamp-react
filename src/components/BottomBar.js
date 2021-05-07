@@ -12,11 +12,8 @@ export default function BottomBar(props) {
         !!selectedDrinksIDs.length &&
         !!selectedDesertsIDs.length
     ) {
-        console.log(true);
         active = true;
     } else {
-        console.log(false);
-
         active = false;
     }
 
