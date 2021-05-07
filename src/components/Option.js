@@ -1,8 +1,8 @@
 export default function Option(props) {
     const { id, img, name, description } = props.option;
     const price = String(props.option.price.toFixed(2)).replace(".", ",");
-    const selectOption = props.selectOption;
-    const selected = props.selected;
+    const [selectOption, modifyAmount] = props.functions;
+    const selected = !!props.selected;
     const type = props.type;
     function select(selected) {}
     return (
@@ -18,9 +18,21 @@ export default function Option(props) {
             <div className="price-quantity">
                 <span>R$ {price}</span>
                 <div className={"counter " + (selected ? "" : "hidden")}>
-                    <span className="remove"> - </span>
+                    <span
+                        className="remove"
+                        onClick={() => modifyAmount(type, id, "remove")}
+                    >
+                        {" "}
+                        -{" "}
+                    </span>
                     <span> 1 </span>
-                    <span className="add"> + </span>
+                    <span
+                        className="add"
+                        onClick={() => modifyAmount(type, id, "add")}
+                    >
+                        {" "}
+                        +{" "}
+                    </span>
                 </div>
             </div>
         </li>

@@ -1,4 +1,4 @@
-import Category from ". /Category";
+import Category from "./Category";
 
 export default function Content() {
     const foodArray = [
@@ -114,9 +114,15 @@ export default function Content() {
     ];
     return (
         <div id="content">
-            <Category type="food" options={foodArray} />
-            <Category type="drink" options={drinkArray} />
-            <Category type="desert" options={desertArray} />
+            <Category type="food" options={foodArray}>
+                <h2>Primeiro, seu prato</h2>
+            </Category>
+            <Category type="drink" options={drinkArray}>
+                <h2>Agora, sua bebida</h2>
+            </Category>
+            <Category type="desert" options={desertArray}>
+                <h2>Por fim, sua sobremesa</h2>
+            </Category>
         </div>
     );
 }

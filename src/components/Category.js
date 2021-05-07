@@ -3,41 +3,62 @@ import Option from "./Option";
 
 export default function Category(props) {
     const [options, setOptions] = React.useState([...props.options]);
-    const [orderFood, setOrderFood] = React.useState([]);
-    const [orderDrink, setOrderDrink] = React.useState([]);
-    const [orderDesert, setOrderDesert] = React.useState([]);
+    const [selectedFoodIDs, setSelectedFoodIDs] = React.useState([]);
+    const [selectedDrinksIDs, setSelectedDrinksIDs] = React.useState([]);
+    const [selectedDesertsIDs, setSelectedDesertsIDs] = React.useState([]);
     const type = props.type;
 
     function selectOption(type, id, selected) {
+        const selectedTypeIDs = getSelectionType(type);
+        const setSelectedTypeIDs = getSetSelectionType(type);
         if (selected) {
             return;
         } else {
-            alert("once");
-            if (type === "food") {
-                setOrderFood([...orderFood, id]);
-            } else if (type === "drink") {
-                setOrderDrink([...orderDrink, id]);
-            } else {
-                setOrderDesert([...orderDesert, id]);
-            }
+            setSelectedTypeIDs([...selectedTypeIDs, id]);
+        }
+    }
+    function modifyAmount(type, id, action) {
+        const selectedTypeIDs = getSelectionType(type);
+        const setSelectedTypeIDs = getSetSelectionType(type);
+        if (action === "add") {
+            setSelectedTypeIDs([...selectedTypeIDs, id]);
+        } else {
+            removeItem(type, id);
         }
     }
 
-    let title;
-    let orderType;
-    if (type === "food") {
-        title = "Primeiro, seu prato";
-        orderType = orderFood;
-    } else if (type === "drink") {
-        title = "Agora, sua bebida";
-        orderType = orderDrink;
-    } else {
-        title = "Por fim, sua sobremesa";
-        orderType = orderDesert;
+    function removeItem(type, id) {
+        const selectedTypeIDs = getSelectionType(type);
+        const setSelectedTypeIDs = getSetSelectionType(type);
+        const i = selectedTypeIDs.indexOf(id);
+        const newArray = [...selectedTypeIDs];
+        newArray.splice(i, 1);
+        setSelectedTypeIDs([...newArray]);
+        selectedTypeIDs.indexOf(id);
     }
+
+    function getSelectionType(type) {
+        if (type === "food") {
+            return selectedFoodIDs;
+        } else if (type === "drink") {
+            return selectedDrinksIDs;
+        } else {
+            return selectedDesertsIDs;
+        }
+    }
+    function getSetSelectionType(type) {
+        if (type === "food") {
+            return setSelectedFoodIDs;
+        } else if (type === "drink") {
+            return setSelectedDrinksIDs;
+        } else {
+            return setSelectedDesertsIDs;
+        }
+    }
+    //const orderType = getSelectionType(type);
     return (
         <div className="category">
-            <h2>{title}</h2>
+            {props.children}
             <ul className="options">
                 {options.map((option) => {
                     return (
@@ -45,9 +66,11 @@ export default function Category(props) {
                             key={option.id}
                             option={option}
                             selected={
-                                orderType.includes(option.id) ? "selected" : ""
+                                getSelectionType(type).includes(option.id)
+                                    ? "selected"
+                                    : ""
                             }
-                            selectOption={selectOption}
+                            functions={[selectOption, modifyAmount]}
                             type={type}
                         />
                     );
