@@ -5,15 +5,15 @@ export default function Content(props) {
         selectedFoodIDs,
         selectedDrinksIDs,
         selectedDesertsIDs,
-        menuObject,
-    ] = props.arrays;
-    const [setButtonState] = props.functions;
+    ] = props.states;
+    const menuObject = props.menuObject;
+    const [
+        setSelectedFoodIDs,
+        setSelectedDrinksIDs,
+        setSelectedDesertsIDs,
+        setButtonState,
+    ] = props.functions;
     function isAbleToOrder() {
-        console.log(
-            selectedFoodIDs.length,
-            selectedDrinksIDs.length,
-            selectedDesertsIDs.length
-        );
         if (
             !!selectedFoodIDs.length &&
             !!selectedDrinksIDs.length &&
@@ -30,21 +30,21 @@ export default function Content(props) {
             <Category
                 menu={menuObject.food}
                 selectedIDs={selectedFoodIDs}
-                functions={[isAbleToOrder]}
+                functions={[...props.functions, isAbleToOrder]}
             >
                 <h2>Primeiro, seu prato</h2>
             </Category>
             <Category
                 menu={menuObject.drinks}
                 selectedIDs={selectedDrinksIDs}
-                functions={[isAbleToOrder]}
+                functions={[...props.functions, isAbleToOrder]}
             >
                 <h2>Agora, sua bebida</h2>
             </Category>
             <Category
                 menu={menuObject.deserts}
                 selectedIDs={selectedDesertsIDs}
-                functions={[isAbleToOrder]}
+                functions={[...props.functions, isAbleToOrder]}
             >
                 <h2>Por fim, sua sobremesa</h2>
             </Category>

@@ -4,7 +4,18 @@ import Option from "./Option";
 export default function Category(props) {
     const menu = props.menu;
     const selectedIDs = props.selectedIDs;
-    const [isAbleToOrder] = props.functions;
+    const [
+        selectedFoodIDs,
+        selectedDrinksIDs,
+        selectedDesertsIDs,
+    ] = props.selectedIDs;
+    const [
+        setSelectedFoodIDs,
+        setSelectedDrinksIDs,
+        setSelectedDesertsIDs,
+        setButtonState,
+        isAbleToOrder,
+    ] = props.functions;
 
     function selectOption(id) {
         console.log([...selectedIDs, id]);
@@ -40,6 +51,7 @@ export default function Category(props) {
                                     : ""
                             }
                             functions={[selectOption, modifyAmount]}
+                            selectedIDs={selectedIDs}
                         />
                     );
                 })}

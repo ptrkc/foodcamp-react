@@ -1,12 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export default function Checkout() {
+import CheckoutSummaryCard from "./CheckoutSummaryCard";
+export default function Checkout(props) {
+    console.log(props);
+    const [
+        selectedFoodIDs,
+        selectedDrinksIDs,
+        selectedDesertsIDs,
+    ] = props.states;
+    const menuObject = props.menuObject;
     return (
         <div id="checkout-box">
             <h2>Revise seu pedido</h2>
-            <div className="checkout-card"></div>
+            <CheckoutSummaryCard
+                states={[
+                    selectedFoodIDs,
+                    selectedDrinksIDs,
+                    selectedDesertsIDs,
+                ]}
+                menuObject={menuObject}
+            />
             <a href="#">Tudo certo</a>
-            <Link to="/"> Cancelar</Link>
+            <Link to="/" className="cancel">
+                Cancelar
+            </Link>
         </div>
     );
 }

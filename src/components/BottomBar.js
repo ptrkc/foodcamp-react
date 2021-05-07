@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function BottomBar(props) {
     const active = !!props.isEnabled;
+
     return (
         <div id="bottom-bar">
             <Link
                 className={active ? "enabled" : ""}
-                to="/Checkout"
+                to="/revisar"
                 onClick={active ? (e) => e : (e) => e.preventDefault()}
             >
                 {active ? (
