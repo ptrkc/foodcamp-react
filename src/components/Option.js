@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function Option(props) {
-    const { id, img, name, description } = props.option;
-    const price = String(props.option.price.toFixed(2)).replace(".", ",");
+    const { id, img, name, description } = props.menuOption;
+    const price = String(props.menuOption.price.toFixed(2)).replace(".", ",");
     const [selectOption, modifyAmount] = props.functions;
     const type = props.type;
     const [counter, setCounter] = React.useState(0);

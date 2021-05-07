@@ -29,24 +29,24 @@ export default function Content(props) {
         <div id="content">
             <Category
                 type="food"
-                options={menuObject.food}
-                arrays={props.arrays}
+                menu={menuObject.food}
+                selectedIDs={selectedFoodIDs}
                 functions={[isAbleToOrder]}
             >
                 <h2>Primeiro, seu prato</h2>
             </Category>
             <Category
                 type="drink"
-                options={menuObject.drinks}
-                arrays={props.arrays}
+                menu={menuObject.drinks}
+                selectedIDs={selectedDrinksIDs}
                 functions={[isAbleToOrder]}
             >
                 <h2>Agora, sua bebida</h2>
             </Category>
             <Category
                 type="desert"
-                options={menuObject.deserts}
-                arrays={props.arrays}
+                menu={menuObject.deserts}
+                selectedIDs={selectedDesertsIDs}
                 functions={[isAbleToOrder]}
             >
                 <h2>Por fim, sua sobremesa</h2>
