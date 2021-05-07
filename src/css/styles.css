@@ -167,6 +167,10 @@ h1 {
 #checkout-box .checkout-card div {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 13px;
+}
+#checkout-box .checkout-card > div:last-of-type {
+    font-weight: bold;
 }
 #checkout-box a {
     height: 52px;

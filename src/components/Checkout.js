@@ -9,6 +9,7 @@ export default function Checkout(props) {
         selectedDesertsIDs,
     ] = props.states;
     const menuObject = props.menuObject;
+    const [url, setUrl] = React.useState("http://www.globo.com");
     return (
         <div id="checkout-box">
             <h2>Revise seu pedido</h2>
@@ -19,8 +20,11 @@ export default function Checkout(props) {
                     selectedDesertsIDs,
                 ]}
                 menuObject={menuObject}
+                setUrl={setUrl}
             />
-            <a href="#">Tudo certo</a>
+            <a href={url} target="_blank" rel="noreferrer">
+                Tudo certo
+            </a>
             <Link to="/" className="cancel">
                 Cancelar
             </Link>

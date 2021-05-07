@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
 
 export default function BottomBar(props) {
-    const active = !!props.isEnabled;
+    const [
+        selectedFoodIDs,
+        selectedDrinksIDs,
+        selectedDesertsIDs,
+    ] = props.states;
+    let active;
+    if (
+        !!selectedFoodIDs.length &&
+        !!selectedDrinksIDs.length &&
+        !!selectedDesertsIDs.length
+    ) {
+        console.log(true);
+        active = true;
+    } else {
+        console.log(false);
+
+        active = false;
+    }
 
     return (
         <div id="bottom-bar">

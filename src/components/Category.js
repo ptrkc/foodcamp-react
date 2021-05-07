@@ -4,36 +4,25 @@ import Option from "./Option";
 export default function Category(props) {
     const menu = props.menu;
     const selectedIDs = props.selectedIDs;
-    const [
-        selectedFoodIDs,
-        selectedDrinksIDs,
-        selectedDesertsIDs,
-    ] = props.selectedIDs;
-    const [
-        setSelectedFoodIDs,
-        setSelectedDrinksIDs,
-        setSelectedDesertsIDs,
-        setButtonState,
-        isAbleToOrder,
-    ] = props.functions;
+    const setSelectedIDs = props.setSelectedIDs;
 
     function selectOption(id) {
         console.log([...selectedIDs, id]);
-        selectedIDs.push(id);
-        isAbleToOrder();
+        setSelectedIDs([...selectedIDs, id]);
     }
     function modifyAmount(id, action) {
         if (action === "add") {
-            selectedIDs.push(id);
+            setSelectedIDs([...selectedIDs, id]);
         } else {
             removeItem(id);
-            isAbleToOrder();
         }
     }
 
     function removeItem(id) {
-        const i = selectedIDs.indexOf(id);
-        selectedIDs.splice(i, 1);
+        const newArr = [...selectedIDs];
+        const i = newArr.indexOf(id);
+        newArr.splice(i, 1);
+        setSelectedIDs([...newArr]);
     }
 
     return (

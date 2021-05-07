@@ -5,8 +5,7 @@ export default function Option(props) {
     const price = String(props.menuOption.price.toFixed(2)).replace(".", ",");
     const [selectOption, modifyAmount] = props.functions;
     const selectedIDs = props.selectedIDs;
-    // selectedIDs = [1,1,2,3]
-    // id = 1
+
     function checkCounter() {
         let counter = 0;
         selectedIDs.forEach((selected) => {
