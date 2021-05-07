@@ -8,14 +8,11 @@ export default function Category(props) {
     const [selectedDesertsIDs, setSelectedDesertsIDs] = React.useState([]);
     const type = props.type;
 
-    function selectOption(type, id, selected) {
+    function selectOption(type, id) {
         const selectedTypeIDs = getSelectionType(type);
         const setSelectedTypeIDs = getSetSelectionType(type);
-        if (selected) {
-            return;
-        } else {
-            setSelectedTypeIDs([...selectedTypeIDs, id]);
-        }
+        console.log([...selectedTypeIDs, id]);
+        setSelectedTypeIDs([...selectedTypeIDs, id]);
     }
     function modifyAmount(type, id, action) {
         const selectedTypeIDs = getSelectionType(type);
@@ -55,7 +52,7 @@ export default function Category(props) {
             return setSelectedDesertsIDs;
         }
     }
-    //const orderType = getSelectionType(type);
+    //const typeRendering = getSelectionType(type);
     return (
         <div className="category">
             {props.children}
@@ -70,7 +67,11 @@ export default function Category(props) {
                                     ? "selected"
                                     : ""
                             }
-                            functions={[selectOption, modifyAmount]}
+                            functions={[
+                                selectOption,
+                                modifyAmount,
+                                getSelectionType,
+                            ]}
                             type={type}
                         />
                     );
