@@ -14,6 +14,7 @@ body {
     right: 0;
     top: 0;
     background-color: #cf2b2b;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 44px;
     color: #ffffff;
     z-index: 1;
@@ -121,6 +122,7 @@ h1 {
     right: 0;
     bottom: 0;
     background-color: #ffffff;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.25);
 }
 #bottom-bar button {
     background-color: #cbcbcb;
@@ -130,7 +132,9 @@ h1 {
     height: 61px;
     color: #ffffff;
     border: none;
-    width: 364px;
+    width: 100%;
+    max-width: 364px;
+    margin: 0px 25px;
     transition: 0.5s;
 }
 #bottom-bar button.enabled {

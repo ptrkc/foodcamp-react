@@ -5,23 +5,22 @@ export default function Category(props) {
     const menu = props.menu;
     const selectedIDs = props.selectedIDs;
     const [isAbleToOrder] = props.functions;
-    const type = props.type;
 
-    function selectOption(type, id) {
+    function selectOption(id) {
         console.log([...selectedIDs, id]);
         selectedIDs.push(id);
         isAbleToOrder();
     }
-    function modifyAmount(type, id, action) {
+    function modifyAmount(id, action) {
         if (action === "add") {
             selectedIDs.push(id);
         } else {
-            removeItem(type, id);
+            removeItem(id);
             isAbleToOrder();
         }
     }
 
-    function removeItem(type, id) {
+    function removeItem(id) {
         const i = selectedIDs.indexOf(id);
         selectedIDs.splice(i, 1);
     }
@@ -41,7 +40,6 @@ export default function Category(props) {
                                     : ""
                             }
                             functions={[selectOption, modifyAmount]}
-                            type={type}
                         />
                     );
                 })}

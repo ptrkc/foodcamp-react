@@ -123,9 +123,9 @@ function App() {
         ],
     };
 
-    const selectedFoodIDs = [];
-    const selectedDrinksIDs = [];
-    const selectedDesertsIDs = [];
+    const [selectedFoodIDs] = React.useState([]);
+    const [selectedDrinksIDs] = React.useState([]);
+    const [selectedDesertsIDs] = React.useState([]);
     return (
         <>
             <TopBar />

@@ -28,7 +28,6 @@ export default function Content(props) {
     return (
         <div id="content">
             <Category
-                type="food"
                 menu={menuObject.food}
                 selectedIDs={selectedFoodIDs}
                 functions={[isAbleToOrder]}
@@ -36,7 +35,6 @@ export default function Content(props) {
                 <h2>Primeiro, seu prato</h2>
             </Category>
             <Category
-                type="drink"
                 menu={menuObject.drinks}
                 selectedIDs={selectedDrinksIDs}
                 functions={[isAbleToOrder]}
@@ -44,7 +42,6 @@ export default function Content(props) {
                 <h2>Agora, sua bebida</h2>
             </Category>
             <Category
-                type="desert"
                 menu={menuObject.deserts}
                 selectedIDs={selectedDesertsIDs}
                 functions={[isAbleToOrder]}

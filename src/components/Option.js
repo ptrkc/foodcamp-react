@@ -4,7 +4,6 @@ export default function Option(props) {
     const { id, img, name, description } = props.menuOption;
     const price = String(props.menuOption.price.toFixed(2)).replace(".", ",");
     const [selectOption, modifyAmount] = props.functions;
-    const type = props.type;
     const [counter, setCounter] = React.useState(0);
     const selected = !!counter;
     function addItem() {
@@ -20,7 +19,7 @@ export default function Option(props) {
                 if (selected) {
                     return;
                 } else {
-                    selectOption(type, id);
+                    selectOption(id);
                     addItem();
                 }
             }}
@@ -36,7 +35,7 @@ export default function Option(props) {
                     <span
                         className="remove"
                         onClick={() => {
-                            modifyAmount(type, id, "remove");
+                            modifyAmount(id, "remove");
                             removeItem();
                         }}
                     >
@@ -47,7 +46,7 @@ export default function Option(props) {
                     <span
                         className="add"
                         onClick={() => {
-                            modifyAmount(type, id, "add");
+                            modifyAmount(id, "add");
                             addItem();
                         }}
                     >
